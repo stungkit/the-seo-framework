@@ -16,6 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+defined( 'ABSPATH' ) or die;
+
 /**
  * Class AutoDescription_Search
  *
@@ -1030,5 +1032,4 @@ class AutoDescription_Sitemaps extends AutoDescription_Metaboxes {
 		$wp_rewrite->flush_rules( true );
 
 	}
-
 }

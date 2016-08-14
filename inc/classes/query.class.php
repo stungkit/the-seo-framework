@@ -16,6 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+defined( 'ABSPATH' ) or die;
+
 /**
  * Class AutoDescription_Query
  *
@@ -965,26 +967,36 @@ class AutoDescription_Query extends AutoDescription_Compat {
 
 	/**
 	 * Determines whether we're on the SEO settings page.
+	 * WARNING: Do not ever use this as a safety check.
 	 *
 	 * @since 2.6.0
+	 * @since 2.7.0 Added secure parameter.
 	 *
+	 * @param bool $secure Whether to ignore the use of the second (insecure) parameter.
 	 * @return bool
 	 */
-	public function is_seo_settings_page() {
+	public function is_seo_settings_page( $secure = true ) {
 
-		if ( null !== $cache = $this->get_query_cache( __METHOD__ ) )
+		if ( null !== $cache = $this->get_query_cache( __METHOD__, null, $secure ) )
 			return $cache;
+
+		if ( $secure ) {
+			$page = $this->is_menu_page( $this->seo_settings_page_hook );
+		} else {
+			$page = $this->is_menu_page( $this->seo_settings_page_hook, $this->seo_settings_page_slug );
+		}
 
 		$this->set_query_cache(
 			__METHOD__,
-			$page = $this->is_menu_page( $this->seo_settings_page_hook, $this->seo_settings_page_slug )
+			$page,
+			$secure
 		);
 
 		return $page;
 	}
 
 	/**
-	 * Checks the screen base file through global $page_hook or $_REQEUST.
+	 * Checks the screen base file through global $page_hook or $_GET.
 	 *
 	 * @since 2.2.2
 	 * @since 2.7.0 Added pageslug parameter.
@@ -1021,7 +1033,8 @@ class AutoDescription_Query extends AutoDescription_Compat {
 		if ( null !== $cache = $this->get_query_cache( __METHOD__ ) )
 			return $cache;
 
-		$page = get_query_var( 'page' );
+		$page = $this->is_multipage() ? get_query_var( 'page' ) : 1;
+		//$page = get_query_var( 'page' );
 
 		$this->set_query_cache(
 			__METHOD__,
@@ -1029,6 +1042,65 @@ class AutoDescription_Query extends AutoDescription_Compat {
 		);
 
 		return $page;
+	}
+
+	/**
+	 * Determines whether the current loop is a multipage.
+	 *
+	 * @since 2.7.0
+	 * @global int $pages Used as reference.
+	 *
+	 * @return bool True if multipage.
+	 */
+	protected function is_multipage() {
+		global $pages;
+
+		$_pages = $pages;
+
+		$post = $this->is_singular() || $this->is_front_page() ? get_post( $this->get_the_real_ID() ) : null;
+
+		if ( is_object( $post ) ) {
+			$content = $post->post_content;
+			if ( false !== strpos( $content, '<!--nextpage-->' ) ) {
+				$content = str_replace( "\n<!--nextpage-->\n", '<!--nextpage-->', $content );
+				$content = str_replace( "\n<!--nextpage-->", '<!--nextpage-->', $content );
+				$content = str_replace( "<!--nextpage-->\n", '<!--nextpage-->', $content );
+
+				// Ignore nextpage at the beginning of the content.
+				if ( 0 === strpos( $content, '<!--nextpage-->' ) )
+					$content = substr( $content, 15 );
+
+				$_pages = explode( '<!--nextpage-->', $content );
+			} else {
+				$_pages = array( $post->post_content );
+			}
+		} else {
+			return false;
+		}
+
+		/**
+		 * Filter the "pages" derived from splitting the post content.
+		 *
+		 * "Pages" are determined by splitting the post content based on the presence
+		 * of `<!-- nextpage -->` tags.
+		 *
+		 * @since 4.4.0 WordPress core
+		 *
+		 * @param array   $_pages Array of "pages" derived from the post content.
+		 *                       of `<!-- nextpage -->` tags..
+		 * @param WP_Post $post  Current post object.
+		 */
+		$_pages = apply_filters( 'content_pagination', $_pages, $post );
+
+		$numpages = count( $_pages );
+
+		if ( $numpages > 1 ) {
+			$multipage = true;
+		} else {
+			$multipage = false;
+		}
+
+		return $multipage;
 	}
 
 	/**
@@ -1081,10 +1153,11 @@ class AutoDescription_Query extends AutoDescription_Compat {
 		static $can_cache_query = null;
 
 		if ( is_null( $can_cache_query ) ) {
-			if ( $this->can_cache_query() )
+			if ( $this->can_cache_query() ) {
 				$can_cache_query = true;
-			else
+			} else {
 				return null;
+			}
 		}
 
 		static $cache = array();

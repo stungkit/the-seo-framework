@@ -1,4 +1,7 @@
 <?php
+
+defined( 'ABSPATH' ) or die;
+
 //* Fetch the required instance within this file.
 $instance = $this->get_view_instance( 'the_seo_framework_title_metabox', $instance );
 
@@ -17,8 +20,8 @@ switch ( $instance ) :
 		$blogname = $this->get_blogname();
 		$sep = $this->get_separator( 'title' );
 
-		$additions_left = '<span class="title-additions-js">' . $blogname . '<span class="autodescription-sep-js">' . " $sep " . '</span></span>';
-		$additions_right = '<span class="title-additions-js"><span class="autodescription-sep-js">' . " $sep " . '</span>' . $blogname . '</span>';
+		$additions_left = '<span class="tsf-title-additions-js">' . $blogname . '<span class="autodescription-sep-js">' . " $sep " . '</span></span>';
+		$additions_right = '<span class="tsf-title-additions-js"><span class="autodescription-sep-js">' . " $sep " . '</span>' . $blogname . '</span>';
 
 		$example_left = '<em>' . $additions_left . $title . '</em>';
 		$example_right = '<em>' . $title . $additions_right . '</em>';
@@ -33,8 +36,8 @@ switch ( $instance ) :
 		?>
 		<h4><?php esc_html_e( 'Example Automated Title Output', 'autodescription' ); ?></h4>
 		<p>
-			<span class="title-additions-example-left" style="display:<?php echo $showleft ? 'inline' : 'none'; ?>"><?php echo $this->code_wrap_noesc( $example_left ); ?></span>
-			<span class="title-additions-example-right" style="display:<?php echo $showleft ? 'none' : 'inline'; ?>"><?php echo $this->code_wrap_noesc( $example_right ); ?></span>
+			<span class="tsf-title-additions-example-left" style="display:<?php echo $showleft ? 'inline' : 'none'; ?>"><?php echo $this->code_wrap_noesc( $example_left ); ?></span>
+			<span class="tsf-title-additions-example-right" style="display:<?php echo $showleft ? 'none' : 'inline'; ?>"><?php echo $this->code_wrap_noesc( $example_right ); ?></span>
 		</p>
 
 		<hr>
@@ -99,12 +102,12 @@ switch ( $instance ) :
 
 	case 'the_seo_framework_title_metabox_general' :
 		$title_separator = $this->get_separator_list();
-		$recommended = ' class="recommended" title="' . esc_attr__( 'Recommended', 'autodescription' ) . '"';
+		$recommended = ' class="tsf-recommended" title="' . esc_attr__( 'Recommended', 'autodescription' ) . '"';
 
 		?>
 		<fieldset>
 			<legend><h4><?php esc_html_e( 'Document Title Separator', 'autodescription' ); ?></h4></legend>
-			<p id="title-separator" class="theseoframework-fields">
+			<p id="tsf-title-separator" class="tsf-fields">
 			<?php foreach ( $title_separator as $name => $html ) { ?>
 				<input type="radio" name="<?php $this->field_name( 'title_seperator' ); ?>" id="<?php $this->field_id( 'title_seperator_' . $name ); ?>" value="<?php echo esc_attr( $name ); ?>" <?php checked( $this->get_field_value( 'title_seperator' ), $name ); ?> />
 				<label for="<?php $this->field_id( 'title_seperator_' . $name ); ?>" <?php echo in_array( $name, array( 'dash', 'pipe' ), true ) ? $recommended : ''; ?>><?php echo esc_html( $html ); ?></label>
@@ -130,15 +133,15 @@ switch ( $instance ) :
 
 			<?php $this->description( __( 'Determines which side the added title text will go on.', 'autodescription' ) ); ?>
 
-			<p id="title-location" class="theseoframework-fields">
-				<span class="toblock">
+			<p id="tsf-title-location" class="tsf-fields">
+				<span class="tsf-toblock">
 					<input type="radio" name="<?php $this->field_name( 'title_location' ); ?>" id="<?php $this->field_id( 'title_location_left' ); ?>" value="left" <?php checked( $this->get_field_value( 'title_location' ), 'left' ); ?> />
 					<label for="<?php $this->field_id( 'title_location_left' ); ?>">
 						<span><?php esc_html_e( 'Left:', 'autodescription' ); ?></span>
 						<?php echo $this->code_wrap_noesc( $example_left ) ?>
 					</label>
 				</span>
-				<span class="toblock">
+				<span class="tsf-toblock">
 					<input type="radio" name="<?php $this->field_name( 'title_location' ); ?>" id="<?php $this->field_id( 'title_location_right' ); ?>" value="right" <?php checked( $this->get_field_value( 'title_location' ), 'right' ); ?> />
 					<label for="<?php $this->field_id( 'title_location_right' ); ?>">
 						<span><?php esc_html_e( 'Right:', 'autodescription' ); ?></span>
@@ -156,7 +159,7 @@ switch ( $instance ) :
 			<hr>
 
 			<h4><?php esc_html_e( 'Remove Blogname from Title', 'autodescription' ); ?></h4>
-			<div id="title-additions-toggle">
+			<div id="tsf-title-additions-toggle">
 				<?php
 				$info = $this->make_info(
 					__( 'This might decouple your posts and pages from the rest of the website', 'autodescription' ),
@@ -204,7 +207,7 @@ switch ( $instance ) :
 		$cat_name = $cat_name ? $cat_name : __( 'Example Category', 'autodescription' );
 
 		$display_prefix = $this->is_option_checked( 'title_rem_prefixes' ) ? 'none' : 'inline';
-		$title = '<span class="title-prefix-example" style="display:' . $display_prefix . '">' . esc_html( $label ) . ': </span>' . esc_html( $cat_name );
+		$title = '<span class="tsf-title-prefix-example" style="display:' . $display_prefix . '">' . esc_html( $label ) . ': </span>' . esc_html( $cat_name );
 
 		$additions_left = $additions['left'];
 		$additions_right = $additions['right'];
@@ -225,8 +228,8 @@ switch ( $instance ) :
 		?>
 		<h4><?php esc_html_e( 'Example Automated Archive Title Output', 'autodescription' ); ?></h4>
 		<p>
-			<span class="title-additions-example-left" style="display:<?php echo $showleft ? 'inline' : 'none'; ?>"><?php echo $this->code_wrap_noesc( $example_left ); ?></span>
-			<span class="title-additions-example-right" style="display:<?php echo $showleft ? 'none' : 'inline'; ?>"><?php echo $this->code_wrap_noesc( $example_right ); ?></span>
+			<span class="tsf-title-additions-example-left" style="display:<?php echo $showleft ? 'inline' : 'none'; ?>"><?php echo $this->code_wrap_noesc( $example_left ); ?></span>
+			<span class="tsf-title-additions-example-right" style="display:<?php echo $showleft ? 'none' : 'inline'; ?>"><?php echo $this->code_wrap_noesc( $example_right ); ?></span>
 		</p>
 
 		<hr>

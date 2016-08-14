@@ -16,6 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+defined( 'ABSPATH' ) or die;
+
 /**
  * This file holds functions for easily extracting or interacting with data
  * from The SEO FrameWork.
@@ -185,6 +187,7 @@ function the_seo_framework_the_url_from_cache() {
  * Whether we're on the SEO settings page.
  *
  * @since 2.6.0
+ * @since 2.7.0 No longer checks for $_GET requests. Only uses global $pagehook.
  *
  * @return bool
  */
@@ -193,7 +196,7 @@ function the_seo_framework_is_settings_page() {
 	$theseoframework = the_seo_framework();
 
 	if ( isset( $theseoframework ) )
-		return $theseoframework->is_seo_settings_page();
+		return $theseoframework->is_seo_settings_page( true );
 
 	return false;
 }

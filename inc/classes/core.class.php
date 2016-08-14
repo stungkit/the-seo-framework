@@ -16,6 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+defined( 'ABSPATH' ) or die;
+
 /**
  * Class AutoDescription_Core
  *
@@ -44,7 +46,7 @@ class AutoDescription_Core {
 
 		switch ( $name ) :
 			case 'pagehook' :
-				$this->_deprecated_function( 'the_seo_framework()->' . $name, '2.7.0', 'the_seo_framework()->seo_settings_page_hook' );
+				$this->_deprecated_function( 'the_seo_framework()->' . esc_html( $name ), '2.7.0', 'the_seo_framework()->seo_settings_page_hook' );
 				return $this->seo_settings_page_hook;
 				break;
 
@@ -62,7 +64,7 @@ class AutoDescription_Core {
 	 */
 	public function __call( $name, $arguments ) {
 		$_this = the_seo_framework();
-		$_this->_inaccessible_p_or_m( 'the_seo_framework()->' . $name . '()' );
+		$_this->_inaccessible_p_or_m( 'the_seo_framework()->' . esc_html( $name ) . '()' );
 		return;
 	}
 
@@ -201,17 +203,24 @@ class AutoDescription_Core {
 	}
 
 	/**
-	 * Generate dismissible notice.
-	 *
-	 * @param $message The notice message. Expected to be escaped.
-	 * @param $type The notice type : 'updated', 'error', 'warning'. Expected to be escaped.
+	 * Generates dismissible notice.
+	 * Also loads scripts and styles if out of The SEO Framework's context.
 	 *
 	 * @since 2.6.0
+	 *
+	 * @param string $message The notice message. Expected to be escaped if $escape is false.
+	 * @param string $type The notice type : 'updated', 'error', 'warning'. Expected to be escaped.
+	 * @param bool $a11y Whether to add an accessibility icon.
+	 * @param bool $escape Whether to escape the whole output.
+	 * @return string The dismissible error notice.
 	 */
-	public function generate_dismissible_notice( $message = '', $type = 'updated' ) {
+	public function generate_dismissible_notice( $message = '', $type = 'updated', $a11y = true, $escape = true ) {
 
 		if ( empty( $message ) )
 			return '';
+
+		if ( $escape )
+			$message = esc_html( $message );
 
 		//* Make sure the scripts are loaded.
 		$this->init_admin_scripts( true );
@@ -219,12 +228,28 @@ class AutoDescription_Core {
 		if ( 'warning' === $type )
 			$type = 'notice-warning';
 
-		$notice = '<div class="notice ' . $type . ' seo-notice"><p>';
-		$notice .= '<a class="hide-if-no-js autodescription-dismiss" title="' . esc_attr__( 'Dismiss', 'AutoDescription' ) . '"></a>';
+		$a11y = $a11y ? 'tsf-show-icon' : '';
+
+		$notice = '<div class="notice ' . esc_attr( $type ) . ' tsf-notice ' . $a11y . '"><p>';
+		$notice .= '<a class="hide-if-no-js tsf-dismiss" title="' . esc_attr__( 'Dismiss', 'AutoDescription' ) . '"></a>';
 		$notice .= '<strong>' . $message . '</strong>';
 		$notice .= '</p></div>';
 
 		return $notice;
+	}
+
+	/**
+	 * Echos generated dismissible notice.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @param $message The notice message. Expected to be escaped if $escape is false.
+	 * @param $type The notice type : 'updated', 'error', 'warning'. Expected to be escaped.
+	 * @param bool $a11y Whether to add an accessibility icon.
+	 * @param bool $escape Whether to escape the whole output.
+	 */
+	public function do_dismissible_notice( $message = '', $type = 'updated', $a11y = true, $escape = true ) {
+		echo $this->generate_dismissible_notice( $message, $type, $a11y, $escape );
 	}
 
 	/**
@@ -660,10 +685,11 @@ class AutoDescription_Core {
 
 				foreach ( $word_count as $word => $count ) {
 
-					if ( mb_strlen( html_entity_decode( $word ) ) < $bother_me_length )
+					if ( mb_strlen( html_entity_decode( $word ) ) < $bother_me_length ) {
 						$run = $count >= $amount_bother;
-					else
+					} else {
 						$run = $count >= $amount;
+					}
 
 					if ( $run ) {
 						//* The encoded word is longer or equal to the bother lenght.
