@@ -41,7 +41,7 @@ use The_SEO_Framework\Helper\{
  * compared to The SEO Framework version constant.
  *
  * @since 2.7.0
- * @since 3.2.4 Applied namspacing to this file. All method names have changed.
+ * @since 3.2.4 Applied namespacing to this file. All method names have changed.
  * @since 4.1.1 No longer memoizes the previous version early. This should help bypass the cache flush.
  * @access private
  * @TODO convert to class, see \TSF_Extension_Manager\Upgrader
@@ -186,7 +186,7 @@ function _do_upgrade() {
  * @return string $current_version The current database version.
  */
 function _downgrade( $previous_version ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
-	// We aren't (currently) expecting issues where downgrading causes mayem. 4051 did cause some, though. This was added later; just set to current.
+	// We aren't (currently) expecting issues where downgrading causes mayhem. 4051 did cause some, though. This was added later; just set to current.
 	return _set_to_current_version();
 }
 
@@ -701,7 +701,7 @@ function _do_upgrade_3001() {
 /**
  * Adds global cache option.
  * Sets `auto_description` option.
- * Migrates `title_seperator` option to `title_separator`.
+ * Migrates `title_seperator` option to `title_separator`. cspell:ignore seperator
  * Sets `sitemap_query_limit` option.
  * Sets `title_strip_tags` option to known behavior.
  * Migrates `attachment_noindex` option to post type settings.
@@ -718,7 +718,7 @@ function _do_upgrade_3103() {
 		// Transport title separator (option name typo).
 		Data\Plugin::update_option(
 			'title_separator',
-			Data\Plugin::get_option( 'title_seperator' ) ?: 'hyphen', // Typo intended.
+			Data\Plugin::get_option( 'title_seperator' ) ?: 'hyphen', // Typo.
 		);
 
 		// Transport attachment_noindex, attachment_nofollow, and attachment_noarchive settings.
@@ -888,7 +888,7 @@ function _do_upgrade_4270() {
 /**
  * Registers option `THE_SEO_FRAMEWORK_SITE_CACHE`.
  * Deletes the static cache for exclusions.
- * Changes `auto_descripton_html_method` to `auto_description_html_method`. (typo)
+ * Changes `auto_descripton_html_method` to `auto_description_html_method`. (typo) cspell:ignore descripton
  * Changes option `autodescription-updates-cache` to constant value THE_SEO_FRAMEWORK_SITE_CACHE.
  * Enables `ld_json_enabled` only if any structured data function used to be active.
  * Sets `homepage_twitter_card_type` to an empty string (aka default).
@@ -904,7 +904,7 @@ function _do_upgrade_5001() {
 	if ( \get_option( 'the_seo_framework_initial_db_version' ) < '5001' ) {
 		Data\Plugin::update_option(
 			'auto_description_html_method',
-			Data\Plugin::get_option( 'auto_descripton_html_method' ) ?: 'fast', // Typo intended.
+			Data\Plugin::get_option( 'auto_descripton_html_method' ) ?: 'fast',
 		);
 
 		$site_cache = \get_option( 'autodescription-updates-cache' ) ?: [];

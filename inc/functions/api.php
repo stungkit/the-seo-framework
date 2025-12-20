@@ -497,7 +497,7 @@ namespace The_SEO_Framework {
 	 * TODO Can we use callables as $func? If so, adjust docs and apply internally.
 	 *
 	 * @param callable $func The Closure or function to memoize.
-	 *                       The Closure can only be cached properly if it's staticlaly stored.
+	 *                       The Closure can only be cached properly if it's statically stored.
 	 * @return mixed The cached value if $value_to_set is null.
 	 *               Otherwise, the $value_to_set.
 	 */

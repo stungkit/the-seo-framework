@@ -81,7 +81,7 @@ class Setup {
 	 * @since 5.0.0 1. $key is now variadic. Additional variables allow you to dig deeper in the cache.
 	 *              2. Moved from `\The_SEO_Framework\Load`.
 	 *
-	 * @param string ...$key Option name. Additional parameters will try get subvalues of the array.
+	 * @param string ...$key Option name. Additional parameters will try get sub-values of the array.
 	 *                       When empty, it'll return all options. You should use get_default_options() instead.
 	 * @return mixed The default option. Null if it's not registered.
 	 */
@@ -102,7 +102,7 @@ class Setup {
 	 * @since 5.0.0 1. $key is now variadic. Additional variables allow you to dig deeper in the cache.
 	 *              2. Moved from `\The_SEO_Framework\Load`.
 	 *
-	 * @param string ...$key Option name. Additional parameters will try get subvalues of the array.
+	 * @param string ...$key Option name. Additional parameters will try get sub-values of the array.
 	 *                       When empty, it'll return all options. You should use get_warned_options() instead.
 	 * @return bool True if warning is registered. False otherwise.
 	 */
@@ -177,7 +177,7 @@ class Setup {
 				// Title.
 				'site_title'          => '',        // Blog name.
 				'title_separator'     => 'hyphen',  // Title separator, radio selection.
-				'title_location'      => $titleloc, // Title separation location.
+				'title_location'      => $titleloc, // Title separation location. cspell:ignore titleloc
 				'title_rem_additions' => 0,         // Remove title additions.
 				'title_rem_prefixes'  => 0,         // Remove title prefixes from archives.
 				'title_strip_tags'    => 1,         // Apply 'strip tags' on titles.
@@ -296,7 +296,7 @@ class Setup {
 				'multi_og_image' => 0, // Allow multiple images to be generated.
 
 				// Theme color settings.
-				'theme_color' => '', // Theme color metatag, default none.
+				'theme_color' => '', // Theme color meta tag, default none.
 
 				// Social FallBack images (fb = fallback)
 				'social_image_fb_url' => '', // Fallback image URL.

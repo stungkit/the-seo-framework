@@ -142,7 +142,7 @@ final class Generator {
 
 		// \strlen( '<img src=a>' ) === 11; yes, that's a valid self-closing tag with a relative source.
 		if ( \strlen( $content ) > 10 && false !== stripos( $content, '<img ' ) ) {
-			// Clear what might have unfavourable images.
+			// Clear what might have unfavorable images.
 			$content = Format\HTML::strip_tags_cs(
 				$content,
 				[

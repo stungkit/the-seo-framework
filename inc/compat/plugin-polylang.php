@@ -30,7 +30,7 @@ use The_SEO_Framework\{
 \add_filter( 'the_seo_framework_seo_column_keys_order', __NAMESPACE__ . '\_polylang_seo_column_keys_order' );
 
 /**
- * Registeres more sitemaps for the robots.txt to parse.
+ * Registers more sitemaps for the robots.txt to parse.
  *
  * This has no other intended effect. But default permalinks may react more tsf_sitemap query values,
  * specifically ?tsf_sitemap=_base_polylang_es&lang=es" (assumed, untested).

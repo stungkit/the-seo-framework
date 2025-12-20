@@ -419,7 +419,7 @@ function _get_product_category_thumbnail_image_details( $args = null, $size = 'f
 /**
  * Filters WC product PTA from TSF's recognized public post type archives.
  *
- * We only filter the admin area to prevent any unforseeable issues on the front-end.
+ * We only filter the admin area to prevent any unforeseeable issues on the front-end.
  * This is because the shop page is singular, singular_archive, shop, and post_type_archive,
  * and can even be is_static_front_page (but not is_real_front_page if queried /shop/ instead of /).
  *

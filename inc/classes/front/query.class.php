@@ -235,7 +235,7 @@ final class Query {
 			$referer = \wp_get_referer();
 			if ( str_contains( $referer, 'post.php' ) || str_contains( $referer, 'post-new.php' ) ) {
 				/**
-				 * WordPress should've authenthicated the user at
+				 * WordPress should've authenticated the user at
 				 * WP_REST_Server::check_authentication() -> rest_cookie_check_errors() -> wp_nonce etc.
 				 * before executing the query. For REST_REQUEST can not be true otherwise. Ergo,
 				 * \current_user_can() should work. If it returns true, we can trust it's a safe request.

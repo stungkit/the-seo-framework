@@ -72,7 +72,7 @@ final class Redirect {
 	}
 
 	/**
-	 * Redirects vistor to input $url.
+	 * Redirects visitor to input $url.
 	 *
 	 * @since 2.9.0
 	 * @since 5.0.0 1. Moved from `\The_SEO_Framework\Load`.

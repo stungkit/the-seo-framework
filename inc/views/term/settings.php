@@ -49,7 +49,7 @@ $generator_args = [
 $show_og = (bool) Data\Plugin::get_option( 'og_tags' );
 $show_tw = (bool) Data\Plugin::get_option( 'twitter_tags' );
 
-$tw_suported_cards = Meta\Twitter::get_supported_cards();
+$tw_supported_cards = Meta\Twitter::get_supported_cards();
 
 $image_placeholder = Meta\Image::get_first_generated_image_url( $generator_args, 'social' );
 
@@ -326,7 +326,7 @@ Input::output_js_social_data(
 					'name'     => 'autodescription-meta[tw_card_type]',
 					'options'  => array_merge(
 						[ '' => \sprintf( $_default_i18n, Meta\Twitter::get_generated_card_type( $generator_args ) ) ],
-						array_combine( $tw_suported_cards, $tw_suported_cards ),
+						array_combine( $tw_supported_cards, $tw_supported_cards ),
 					),
 					'selected' => $meta['tw_card_type'],
 				] );

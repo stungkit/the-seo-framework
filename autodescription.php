@@ -16,7 +16,7 @@
  * Plugin Name: The SEO Framework
  * Plugin URI: https://theseoframework.com/
  * Description: An automated, advanced, accessible, unbranded and extremely fast SEO solution for your WordPress website.
- * Version: 5.1.4
+ * Version: 5.1.5-dev-1
  * Author: Sybre Waaijer
  * Author URI: https://theseoframework.com/
  * License: GPLv3
@@ -53,10 +53,10 @@ defined( 'ABSPATH' ) or die;
  *
  * @since 2.3.5
  */
-define( 'THE_SEO_FRAMEWORK_VERSION', '5.1.4' );
+define( 'THE_SEO_FRAMEWORK_VERSION', '5.1.5' );
 
 /**
- * The plugin Database version.
+ * The plugin database version.
  *
  * Used for lightweight version upgrade comparing.
  *
@@ -78,7 +78,7 @@ define( 'THE_SEO_FRAMEWORK_PLUGIN_BASE_FILE', __FILE__ );
  */
 define( 'THE_SEO_FRAMEWORK_BOOTSTRAP_PATH', dirname( THE_SEO_FRAMEWORK_PLUGIN_BASE_FILE ) . DIRECTORY_SEPARATOR . 'bootstrap' . DIRECTORY_SEPARATOR );
 
-// Defines environental constants.
+// Defines environmental constants.
 require THE_SEO_FRAMEWORK_BOOTSTRAP_PATH . 'define.php';
 
 // Load plugin API functions.
@@ -94,6 +94,7 @@ the_seo_framework_db_version() !== THE_SEO_FRAMEWORK_DB_VERSION
 // Load plugin.
 require THE_SEO_FRAMEWORK_BOOTSTRAP_PATH . 'load.php';
 
+// cspell:disable
 // # Zelda is here to protect your site from hackers.
 // #
 // #                  OLLLLLLLLL

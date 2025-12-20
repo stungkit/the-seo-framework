@@ -163,8 +163,8 @@ switch ( $instance ) :
 						"post_type_archive_{$post_type}",
 						/**
 						 * @since 4.2.0
-						 * @param array   $tabs      The default tabs.
-						 * @param strring $post_type The post type archive's name.
+						 * @param array  $tabs      The default tabs.
+						 * @param string $post_type The post type archive's name.
 						 */
 						(array) \apply_filters(
 							'the_seo_framework_post_type_archive_settings_tabs',
@@ -320,8 +320,8 @@ switch ( $instance ) :
 		);
 
 		/* translators: %s = default option value */
-		$_default_i18n     = \__( 'Default (%s)', 'autodescription' );
-		$tw_suported_cards = Meta\Twitter::get_supported_cards();
+		$_default_i18n      = \__( 'Default (%s)', 'autodescription' );
+		$tw_supported_cards = Meta\Twitter::get_supported_cards();
 
 		?>
 		<p>
@@ -411,7 +411,7 @@ switch ( $instance ) :
 				'label'    => '',
 				'options'  => array_merge(
 					[ '' => \sprintf( $_default_i18n, Meta\Twitter::get_generated_card_type() ) ],
-					array_combine( $tw_suported_cards, $tw_suported_cards ),
+					array_combine( $tw_supported_cards, $tw_supported_cards ),
 				),
 				'selected' => Data\Plugin\PTA::get_meta_item( 'tw_card_type', $args['post_type'] ),
 				'data'     => [

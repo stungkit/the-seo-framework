@@ -120,7 +120,7 @@ class Persistent {
 	 *
 	 * @since 4.1.0
 	 * @since 5.0.0 1. Moved from `\The_SEO_Framework\Load`.
-	 *              2. The second paremeter is no longer passed by reference.
+	 *              2. The second parameter is no longer passed by reference.
 	 *
 	 * @param string $key   The notice key.
 	 * @param int    $count The number of counts the notice has left.
@@ -180,7 +180,7 @@ class Persistent {
 	}
 
 	/**
-	 * Returns the snaitized notice action key.
+	 * Returns the sanitized notice action key.
 	 *
 	 * @since 4.1.0
 	 * @since 4.1.4 1. Now 'public', marked private.
@@ -207,8 +207,8 @@ class Persistent {
 	 */
 	public static function _output_notices() {
 
-		$notices    = Data\Plugin::get_site_cache( 'persistent_notices' ) ?? [];
-		$screenbase = \get_current_screen()->base ?? '';
+		$notices     = Data\Plugin::get_site_cache( 'persistent_notices' ) ?? [];
+		$screen_base = \get_current_screen()->base ?? '';
 
 		// Ideally, we don't want to output more than one on no-js. Alas, we can't anticipate the importance and order of the notices.
 		foreach ( $notices as $key => $notice ) {
@@ -217,8 +217,8 @@ class Persistent {
 			if (
 				   ! \current_user_can( $cond['capability'] )
 				|| ( $cond['user'] && Query::get_current_user_id() !== $cond['user'] )
-				|| ( $cond['screens'] && ! \in_array( $screenbase, $cond['screens'], true ) )
-				|| ( $cond['excl_screens'] && \in_array( $screenbase, $cond['excl_screens'], true ) )
+				|| ( $cond['screens'] && ! \in_array( $screen_base, $cond['screens'], true ) )
+				|| ( $cond['excl_screens'] && \in_array( $screen_base, $cond['excl_screens'], true ) )
 			) continue;
 
 			if ( -1 !== $cond['timeout'] && $cond['timeout'] < time() ) {

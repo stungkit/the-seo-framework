@@ -65,7 +65,7 @@ class Pool extends Legacy_API {
 	 * @since 5.0.0
 	 * @api Not used internally.
 	 *
-	 * @return \Closure An anononymous class with subpools.
+	 * @return \Closure An anonymous class with subpools.
 	 */
 	public static function admin() {
 		return static::$pool['admin'] ??= new class {
@@ -77,7 +77,7 @@ class Pool extends Legacy_API {
 
 			/**
 			 * @since 5.0.0
-			 * @return \Closure An anononymous class with subpools.
+			 * @return \Closure An anonymous class with subpools.
 			 */
 			public static function layout() {
 				return static::$subpool['layout'] ??= new class {
@@ -201,7 +201,7 @@ class Pool extends Legacy_API {
 	 * @since 5.0.0
 	 * @api Not used internally.
 	 *
-	 * @return \Closure An anononymous class with subpools.
+	 * @return \Closure An anonymous class with subpools.
 	 */
 	public static function data() {
 		return static::$pool['data'] ??= new class {
@@ -458,7 +458,7 @@ class Pool extends Legacy_API {
 	 * @since 5.0.0
 	 * @api Not used internally.
 	 *
-	 * @return \Closure An anononymous class with subpools.
+	 * @return \Closure An anonymous class with subpools.
 	 */
 	public static function format() {
 		return static::$pool['format'] ??= new class {
@@ -851,7 +851,7 @@ class Pool extends Legacy_API {
 	 * @since 5.0.0
 	 * @api Not used internally.
 	 *
-	 * @return \Closure An anononymous class with subpools.
+	 * @return \Closure An anonymous class with subpools.
 	 */
 	public static function sitemap() {
 		return static::$pool['sitemap'] ??= new class {

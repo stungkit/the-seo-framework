@@ -41,7 +41,7 @@ class Guidelines {
 	 *
 	 * Memoizes the output, so the return filter will run only once.
 	 *
-	 * NB: Some scripts have wide characters. These are recognized by Google, and have been adjusted for in the chactacter
+	 * NB: Some scripts have wide characters. These are recognized by Google, and have been adjusted for in the character
 	 * guidelines. German is a special Case, where we account for the Capitalization of Nouns.
 	 *
 	 * NB: Although the Arabic & Farsi scripts are much smaller in width, Google seems to be using the 160 & 70 char limits
@@ -69,6 +69,7 @@ class Guidelines {
 		if ( null !== $memo = memo( null, $locale ) ) return $memo;
 
 		// phpcs:disable WordPress.WhiteSpace.OperatorSpacing.SpacingAfter
+		// cspell:disable
 		$character_adjustments = [
 			'as'    => 148 / 160, // Assamese (অসমীয়া)
 			'de_AT' => 158 / 160, // Austrian German (Österreichisch Deutsch)
@@ -83,6 +84,7 @@ class Guidelines {
 			'zh_HK' =>  70 / 160, // Hong Kong (Chinese version) (香港中文版)
 			'zh_CN' =>  70 / 160, // Mandarin (Simplified Chinese) (简体中文)
 		];
+		// cspell:enable
 		// phpcs:enable WordPress.WhiteSpace.OperatorSpacing.SpacingAfter
 
 		// Default to 1 (160/160 = no adjustment).

@@ -46,7 +46,7 @@ final class Deprecated {
 	 *
 	 * @since 5.0.0
 	 *
-	 * @param string ...$key Option name. Additional parameters will try get subvalues of the array.
+	 * @param string ...$key Option name. Additional parameters will try get sub-values of the array.
 	 *                       When empty, the function will return an unexpected value, but likely null.
 	 * @return mixed
 	 */

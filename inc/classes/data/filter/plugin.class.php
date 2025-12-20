@@ -91,14 +91,14 @@ final class Plugin {
 
 		$store = [];
 
-		foreach ( $sanitizers as $suboption => $callbacks ) {
+		foreach ( $sanitizers as $sub_option => $callbacks ) {
 			foreach ( $callbacks as $callback ) {
-				$store[ $suboption ] = \call_user_func_array(
+				$store[ $sub_option ] = \call_user_func_array(
 					$callback,
 					[
-						$value[ $suboption ] ?? '', // If no value is sent, the form field was empty.
-						$original_value[ $suboption ], // If this fails, the option isn't registered properly. Error is good.
-						$suboption,
+						$value[ $sub_option ] ?? '', // If no value is sent, the form field was empty.
+						$original_value[ $sub_option ], // If this fails, the option isn't registered properly. Error is good.
+						$sub_option,
 					],
 				);
 			}
@@ -108,7 +108,7 @@ final class Plugin {
 	}
 
 	/**
-	 * Add sanitization filters to suboptions.
+	 * Add sanitization filters to sub-options.
 	 * Will only set filters if they don't already exists. This allows for other
 	 * developers to add their custom filters before we do --- use filter
 	 * `'sanitize_option_' . \THE_SEO_FRAMEWORK_SITE_OPTIONS`.

@@ -289,8 +289,8 @@ switch ( $instance ) :
 
 	case 'social':
 		/* translators: %s = default option value */
-		$_default_i18n     = \__( 'Default (%s)', 'autodescription' );
-		$tw_suported_cards = Meta\Twitter::get_supported_cards();
+		$_default_i18n      = \__( 'Default (%s)', 'autodescription' );
+		$tw_supported_cards = Meta\Twitter::get_supported_cards();
 
 		$custom_title    = '';
 		$custom_desc     = '';
@@ -312,7 +312,7 @@ switch ( $instance ) :
 			$custom_tw_desc  = Sanitize::metadata_content( Data\Plugin\Post::get_meta_item( '_twitter_description', $home_id ) );
 
 			$custom_tw_card  = Data\Plugin\Post::get_meta_item( '_tsf_twitter_card_type', $home_id );
-			$tw_card_default = \in_array( $custom_tw_card, $tw_suported_cards, true )
+			$tw_card_default = \in_array( $custom_tw_card, $tw_supported_cards, true )
 				? $custom_tw_card
 				: Meta\Twitter::get_generated_card_type( $generator_args );
 
@@ -480,7 +480,7 @@ switch ( $instance ) :
 				'label'    => '',
 				'options'  => array_merge(
 					[ '' => \sprintf( $_default_i18n, $tw_card_default ) ],
-					array_combine( $tw_suported_cards, $tw_suported_cards ),
+					array_combine( $tw_supported_cards, $tw_supported_cards ),
 				),
 				'selected' => Data\Plugin::get_option( 'homepage_twitter_card_type' ),
 				'data'     => [

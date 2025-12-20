@@ -79,7 +79,7 @@ class Plugin {
 	 *              3. Moved from `\The_SEO_Framework\Load`.
 	 * @uses \THE_SEO_FRAMEWORK_SITE_OPTIONS
 	 *
-	 * @param string ...$key Option name. Additional parameters will try get subvalues of the array.
+	 * @param string ...$key Option name. Additional parameters will try get sub-values of the array.
 	 *                       When empty, it'll return all options. You should use get_options() instead.
 	 * @return mixed The TSF option value. Null when not found.
 	 */
@@ -142,7 +142,7 @@ class Plugin {
 	 *
 	 * @param string|array $option The option key, or an array of key and value pairs.
 	 * @param mixed        $value  The option value. Ignored when $option is an array.
-	 * @return bool True on succesful update, false otherwise.
+	 * @return bool True on successful update, false otherwise.
 	 */
 	public static function update_option( $option, $value = '' ) {
 

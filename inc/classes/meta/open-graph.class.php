@@ -424,6 +424,7 @@ class Open_Graph {
 	 * @return array Valid social locales
 	 */
 	public static function get_supported_locales() {
+		// cspell:disable
 		return [
 			'af_ZA' => 'af', // Afrikaans
 			'ak_GH' => 'ak', // Akan
@@ -566,5 +567,6 @@ class Open_Graph {
 			'zu_ZA' => 'zu', // Zulu
 			'zz_TR' => 'zz', // Zazaki
 		];
+		// cspell:enable
 	}
 }

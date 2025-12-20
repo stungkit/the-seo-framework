@@ -37,7 +37,7 @@ final class Webmasters {
 
 	/**
 	 * @since 5.0.0
-	 * @var callable[] GENERATORS A list of autoloaded meta callbacks.
+	 * @var callable[] GENERATORS A list of auto-loaded meta callbacks.
 	 */
 	public const GENERATORS = [
 		[ __CLASS__, 'generate_google_verification' ],
@@ -73,7 +73,7 @@ final class Webmasters {
 		$code = Data\Plugin::get_option( 'bing_verification' );
 
 		if ( $code )
-			yield 'msvalidate.01' => [
+			yield 'msvalidate.01' => [ // cspell:ignore msvalidate
 				'attributes' => [
 					'name'    => 'msvalidate.01',
 					'content' => $code,

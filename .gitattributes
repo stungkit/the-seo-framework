@@ -28,4 +28,5 @@ README.md export-ignore
 
 # Our baggage for development.
 composer.json export-ignore
+cspell.json export-ignore
 phpcs.xml export-ignore

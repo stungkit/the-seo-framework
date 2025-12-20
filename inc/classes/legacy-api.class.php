@@ -79,7 +79,7 @@ class Legacy_API {
 	 *
 	 * @param string|array $option The option key, or an array of key and value pairs.
 	 * @param mixed        $value  The option value. Ignored when $option is an array.
-	 * @return bool True on succesful update, false otherwise.
+	 * @return bool True on successful update, false otherwise.
 	 */
 	public static function update_option( $option, $value = '' ) {
 		return static::data()->plugin()->update_option( $option, $value );

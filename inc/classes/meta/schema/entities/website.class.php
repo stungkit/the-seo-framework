@@ -41,7 +41,7 @@ final class WebSite extends Reference {
 
 	/**
 	 * @since 5.0.0
-	 * @var callable[] BUILDERS A list of autoloaded builder callbacks.
+	 * @var callable[] BUILDERS A list of auto-loaded builder callbacks.
 	 */
 	const BUILDERS = [
 		[ __CLASS__, 'build' ],

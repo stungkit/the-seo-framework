@@ -114,7 +114,7 @@ The SEO Framework works on many things without notifying you, because the best s
 
 * Internationalization through WordPress.org. You can [contribute here](https://translate.wordpress.org/projects/wp-plugins/autodescription/).
 * Unicode (UTF-8) character recognition and rendering, including Emoji and CJKV (Chinese, Japanese, Korean, Vietnamese).
-* Right to Left (RTL) languages (Arabic, Hebrew, Farsi, etc.), through its interface and metatag generation.
+* Right to Left (RTL) languages (Arabic, Hebrew, Farsi, etc.), through its interface and meta tag generation.
 * Complete color-vision deficiency accessibility thanks to a carefully picked color scheme.
 * Full keyboard navigation, so that you can inspect tooltips quickly without ever having to reach for your mouse.
 * Full screen-reader accessibility via field anchors, ARIA labels, and title attributes.
@@ -245,7 +245,7 @@ You can also output these breadcrumbs visually in your theme by [using a shortco
 
 ### 5.1.4
 
-This tiny update adds a new setting and shortcode attribute for breadcrumb title output, letting you choose between meta titles or page titles. We rushed this one out because our notification didn't work, and we do not want to send out notifications without giving [a feature in return](https://theseoframework.com/?p=4425).
+This tiny update adds a new setting and shortcode attribute for breadcrumb title output, letting you choose between meta titles or page titles. We rushed this one out because our notification didn't work, and we do not want to send out notifications without giving [a feature in return](https://theseoframework.com/?p=4439).
 
 ### 5.1.3
 

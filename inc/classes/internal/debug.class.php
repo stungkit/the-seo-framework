@@ -235,7 +235,7 @@ final class Debug {
 	 *
 	 * @since 3.2.2
 	 * @since 4.1.1 Reworked to work with any error handler.
-	 * @since 5.0.0 Now actualyl used my brain and added an automated object searcher instead of guessing.
+	 * @since 5.0.0 Now actually used my brain and added an automated object searcher instead of guessing.
 	 * @see PHP debug_backtrace()
 	 *
 	 * @return array The erroneous caller data

@@ -78,8 +78,8 @@ $robots_settings = [
 		<div class=inline-edit-col>
 			<div class="inline-edit-group wp-clearfix">
 				<?php
-				$_no_change_i18n      = \__( '&mdash; No Change &mdash;', 'default' );
-				$_default_unkown_i18n = \__( 'Default (unknown)', 'autodescription' );
+				$_no_change_i18n       = \__( '&mdash; No Change &mdash;', 'default' );
+				$_default_unknown_i18n = \__( 'Default (unknown)', 'autodescription' );
 
 				foreach ( $robots_settings as $_setting ) {
 					// This is bad accessibility, but it's exactly as bad as WP is, and we don't want to stray away from their standards.
@@ -91,7 +91,7 @@ $robots_settings = [
 							'name'     => $_setting['name'],
 							'options'  => [
 								'nochange' => $_no_change_i18n,
-								0          => $_default_unkown_i18n,
+								0          => $_default_unknown_i18n,
 								-1         => $_setting['force_on'],
 								1          => $_setting['force_off'],
 							],

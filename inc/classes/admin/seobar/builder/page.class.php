@@ -394,7 +394,7 @@ final class Page extends Main {
 					'estimated'  => \__( 'Estimated from the number of characters found. The pixel counter asserts the true length.', 'autodescription' ),
 					/**
 					 * @since 2.6.0
-					 * @param int $short_word_length The minimum stringlength of words to find as dupes.
+					 * @param int $short_word_length The minimum string length of words to find as dupes.
 					 */
 					'dupe_short' => (int) \apply_filters( 'the_seo_framework_bother_me_desc_length', 3 ),
 				],

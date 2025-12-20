@@ -239,7 +239,7 @@ class Conditions {
 	 *              2: Added filter.
 	 * @since 5.0.0 Moved from `\The_SEO_Framework\Load`.
 	 *
-	 * @param \WP_Term|\WP_User|\WP_Post_Type|null $term The Term object. Leave null to autodermine query.
+	 * @param \WP_Term|\WP_User|\WP_Post_Type|null $term The Term object. Leave null to autodetermine query.
 	 * @return bool
 	 */
 	public static function use_generated_archive_prefix( $term = null ) {

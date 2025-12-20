@@ -70,7 +70,7 @@ class Strings {
 	 *              This does mean that the functionality is crippled when the PHP
 	 *              installation isn't unicode compatible; this is unlikely.
 	 * @since 4.0.0 1. Now expects PCRE UTF-8 encoding support.
-	 *              2. Moved input-parameter alterting filters outside of this function.
+	 *              2. Moved input-parameter altering filters outside of this function.
 	 *              3. Short length now works as intended, instead of comparing as less, it compares as less or equal to.
 	 * @since 4.2.0 Now supports detection of connector-dashes, connector-punctuation, and closing quotes,
 	 *              and recognizes those as whole words.

@@ -37,7 +37,7 @@ use The_SEO_Framework\{
  * This file will only be called ONCE on plugin install, or upgrade from pre-v3.0.6.
  *
  * @since 3.0.6
- * @since 3.2.4 Applied namspacing to this file. All method names have changed.
+ * @since 3.2.4 Applied namespacing to this file. All method names have changed.
  * @access private
  */
 

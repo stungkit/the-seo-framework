@@ -21,7 +21,7 @@ use The_SEO_Framework\{
 \add_action( 'the_seo_framework_sitemap_nhpt_query_args', __NAMESPACE__ . '\_wpml_sitemap_filter_non_translatables' );
 
 /**
- * Registeres more sitemaps for the robots.txt to parse.
+ * Registers more sitemaps for the robots.txt to parse.
  *
  * This has no other intended effect. But default permalinks may react more tsf_sitemap query values,
  * specifically ?tsf_sitemap=_base_wpml_es&lang=es" (assumed, untested).

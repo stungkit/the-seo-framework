@@ -412,8 +412,8 @@ switch ( $instance ) :
 			<div class="tsf-flex-setting-input tsf-flex">
 				<?php
 				/* translators: %s = default option value */
-				$_default_i18n     = \__( 'Default (%s)', 'autodescription' );
-				$tw_suported_cards = Meta\Twitter::get_supported_cards();
+				$_default_i18n      = \__( 'Default (%s)', 'autodescription' );
+				$tw_supported_cards = Meta\Twitter::get_supported_cards();
 
 				// phpcs:disable WordPress.Security.EscapeOutput -- make_single_select_form() escapes.
 				echo Form::make_single_select_form( [
@@ -423,7 +423,7 @@ switch ( $instance ) :
 					'label'    => '',
 					'options'  => array_merge(
 						[ '' => \sprintf( $_default_i18n, $_twitter_card ) ],
-						array_combine( $tw_suported_cards, $tw_suported_cards ),
+						array_combine( $tw_supported_cards, $tw_supported_cards ),
 					),
 					'selected' => $meta['_tsf_twitter_card_type'],
 				] );

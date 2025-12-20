@@ -256,7 +256,7 @@ class Taxonomy {
 	 *              3. The first parameter is now optional.
 	 *
 	 * @param string $taxonomy The taxonomy.
-	 * @param bool   $singular Whether to get the singlural or plural name.
+	 * @param bool   $singular Whether to get the singular or plural name.
 	 * @return string The Taxonomy Type name/label, if found.
 	 */
 	public static function get_label( $taxonomy = '', $singular = true ) {

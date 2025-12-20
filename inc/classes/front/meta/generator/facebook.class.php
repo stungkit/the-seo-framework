@@ -37,7 +37,7 @@ final class Facebook {
 
 	/**
 	 * @since 5.0.0
-	 * @var callable[] GENERATORS A list of autoloaded meta callbacks.
+	 * @var callable[] GENERATORS A list of auto-loaded meta callbacks.
 	 */
 	public const GENERATORS = [
 		[ __CLASS__, 'generate_article_author' ],

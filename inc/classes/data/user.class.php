@@ -65,7 +65,7 @@ class User {
 			// Then, we switch to the blog to extract those capabilities. This cannot be improved here for security reasons.
 			foreach ( \get_blogs_of_user( $_user->ID ) as $user_blog ) {
 				// We must use switch_to_blog() for plugins may insert custom roles for the site.
-				\switch_to_blog( $user_blog->userblog_id );
+				\switch_to_blog( $user_blog->userblog_id ); // cspell:ignore userblog
 
 				// Neither the stored nor cloned user object switches with switch_to_blog(); let's fix that:
 				$_user->for_site( $user_blog->userblog_id );
