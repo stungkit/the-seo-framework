@@ -161,7 +161,7 @@ class Pool extends Legacy_API {
 
 			/**
 			 * @since 5.0.0
-			 * @return \The_SEO_Framework\Admin\Settings\Layout\HTML
+			 * @return \The_SEO_Framework\Admin\Utils
 			 */
 			public static function utils() {
 				return static::$subpool['utils'] ??= new class extends Admin\Utils {
@@ -170,6 +170,51 @@ class Pool extends Legacy_API {
 					private $colloquial_handle     = 'tsf()->admin()->utils()';
 					private $deprecated_methods    = [];
 					private $deprecated_properties = [];
+				};
+			}
+
+			/**
+			 * @since 5.1.5
+			 * @return \The_SEO_Framework\Admin\SEOBar\Builder
+			 */
+			public static function seobar() {
+				return static::$subpool['seobar'] ??= new class extends Admin\SEOBar\Builder {
+					use Static_Deprecator;
+
+					private $colloquial_handle     = 'tsf()->admin()->seobar()';
+					private $deprecated_methods    = [];
+					private $deprecated_properties = [];
+				};
+			}
+
+			/**
+			 * @since 5.1.5
+			 * @return \Closure An anonymous class with subpools.
+			 */
+			public static function scripts() {
+				return static::$subpool['scripts'] ??= new class {
+
+					use Static_Deprecator;
+
+					private $colloquial_handle     = 'tsf()->admin()->scripts()';
+					private $deprecated_methods    = [];
+					private $deprecated_properties = [];
+
+					private static $subpool = [];
+
+					/**
+					 * @since 5.1.5
+					 * @return \The_SEO_Framework\Admin\Script\Loader
+					 */
+					public static function loader() {
+						return static::$subpool['loader'] ??= new class extends Admin\Script\Loader {
+							use Static_Deprecator;
+
+							private $colloquial_handle     = 'tsf()->admin()->scripts()->loader()';
+							private $deprecated_methods    = [];
+							private $deprecated_properties = [];
+						};
+					}
 				};
 			}
 		};

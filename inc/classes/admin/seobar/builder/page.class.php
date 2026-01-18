@@ -399,7 +399,7 @@ final class Page extends Main {
 					'dupe_short' => (int) \apply_filters( 'the_seo_framework_bother_me_desc_length', 3 ),
 				],
 				'assess'   => [
-					'empty'     => \__( 'There is no usable content, so no description could be generated.', 'autodescription' ),
+					'empty'     => \__( 'There is no usable content for description generation. Search engines may create a description from the content found on this page.', 'autodescription' ),
 					'builder'   => \__( 'A page builder is used that renders content dynamically, so no description can be generated for performance and privacy reasons. Consider providing a custom description.', 'autodescription' ),
 					'protected' => \__( 'The page is protected, so no description is generated.', 'autodescription' ),
 					'excerpt'   => \__( "It's built from the page excerpt field.", 'autodescription' ),

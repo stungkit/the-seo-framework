@@ -26,7 +26,6 @@ a.tsf-tooltip-item {
 	pointer-events: none;
 	box-sizing: border-box;
 	display: flex;
-	flex: 1 1 auto;
 	flex-flow: row wrap;
 	justify-content: flex-start;
 	direction: ltr;
@@ -58,6 +57,10 @@ a.tsf-tooltip-item {
 	flex: 1 0 auto;
 	flex-flow: row wrap;
 	justify-content: flex-start;
+}
+
+.tsf-tooltip-text {
+	max-width: 256px;
 }
 
 .tsf-tooltip-text-wrap * {

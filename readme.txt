@@ -152,7 +152,7 @@ However, it would be best if you read up on our [plugin setup guide](https://the
 
 ### This plugin auto-configures SEO meta settings
 
-However, you may want to read up on our [page improvement guide](https://theseoframework.com/?p=2663) to learn how you can optimize your pages.
+Still, you may want to read up on our [page improvement guide](https://theseoframework.com/?p=2663) to learn how you can optimize your pages.
 
 ### Get more SEO power
 
@@ -175,7 +175,7 @@ This plugin is slim yet all-inclusive. It's 100% freeware, not crippleware.
 
 = Is there a premium version? =
 
-No. We treat this plugin as a premium plugin already.
+No. We treat this plugin as premium already.
 
 However, we do offer many free and paid extensions that help support this free plugin. We provide these via our free [Extension Manager plugin](https://theseoframework.com/?p=2760).
 
@@ -242,6 +242,33 @@ The SEO Framework outputs hidden breadcrumbs for search engines to find via its 
 You can also output these breadcrumbs visually in your theme by [using a shortcode](https://kb.theseoframework.com/?p=212).
 
 == Changelog ==
+
+### 5.1.5
+
+## For everyone
+
+* **Improved:**
+	* **Tooltips:**
+		* Tooltips now aim to be a little wider to ease reading.
+		* Tooltips now properly dismiss when tapping elsewhere on touch devices. Particularily, added improved support for iOS.
+		* Tooltips now spawn correctly on Android when tapping child elements within tooltip items.
+		* Added `touchcancel` event handling for multi-finger gesture support -- it won't invoke multiple tooltips anymore.
+		* Tooltips now stay when invoking a scroll or pan on touch devices.
+		* SEO Bar focus styles now use `:focus-visible` instead of `:focus`, preventing focus rings on touch taps, but still showing them for keyboard navigation.
+
+## For developers
+
+**PHP method notes:**
+	* **Added:**
+		* Pool `tsf()->admin()->seobar()` is now available.
+			* It contains public methods `generate_bar()`, `collect_seo_bar_items()`, `register_seo_bar_item()`, and `edit_seo_bar_item()`.
+			* It contains public constants `STATE_UNDEFINED`, `STATE_UNKNOWN`, `STATE_BAD`, `STATE_OKAY`, and `STATE_GOOD`.
+			* Internally known as `The_SEO_Framework\Admin\SEOBar\Builder`.
+		* Pool `tsf()->admin()->scripts()->loader()` is now available.
+			* It contains public methods `mount()` and `init()`, among many script setup methods.
+			* Internally known as `The_SEO_Framework\Admin\Script\Loader`.
+		* **Fun fact:** We had to add the two pools above to display interactive demos of TSF on our Knowledge Base -- in this case, for our [SEO Bar xplainer](https://kb.theseoframework.com/kb/what-is-the-seo-bar/). More demos will come, which will force us to improve the APIs even further.
+
 
 ### 5.1.4
 

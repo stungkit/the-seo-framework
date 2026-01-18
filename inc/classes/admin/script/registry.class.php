@@ -124,8 +124,6 @@ final class Registry {
 	 * Registers all scripts and necessary hooks.
 	 *
 	 * @since 5.0.0
-	 *
-	 * @access public
 	 */
 	public static function register_scripts_and_hooks() {
 
@@ -152,6 +150,7 @@ final class Registry {
 	 * @since 3.1.0
 	 */
 	public static function enqueue() {
+
 		self::_prepare_admin_scripts();
 		self::_output_templates();
 	}
@@ -176,6 +175,7 @@ final class Registry {
 	 * @since 4.0.0
 	 * @since 5.0.0 1. Is now static.
 	 *              2. Now adds a low contrast SEO Bar class.
+	 * @access private
 	 *
 	 * @param string $classes Space-separated list of CSS classes.
 	 * @return string
@@ -194,6 +194,7 @@ final class Registry {
 	 * @since 4.0.0
 	 * @since 4.0.5 Put the const assignment on front, so it's prone to fail earlier.
 	 * @since 5.0.0 Is now static.
+	 * @access private
 	 */
 	public static function _print_tsfjs_script() {
 		echo "<script>(()=>{const a=0;document.body.classList.replace('tsf-no-js','tsf-js')})()</script>";
@@ -204,8 +205,10 @@ final class Registry {
 	 *
 	 * @since 3.1.0
 	 * @since 5.0.0 Is now static.
+	 * @access private
 	 */
 	public static function _prepare_admin_scripts() {
+
 		self::forward_known_scripts();
 		self::autoload_known_scripts();
 	}
@@ -269,6 +272,7 @@ final class Registry {
 	 * }
 	 */
 	public static function register( $script ) {
+
 		// This is over 350x faster than a polyfill for `array_is_list()`.
 		if ( isset( $script[0] ) && array_values( $script ) === $script ) {
 			foreach ( $script as $s ) self::register( $s );
@@ -287,6 +291,7 @@ final class Registry {
 	 * @param string $type The script type.
 	 */
 	public static function forward_known_script( $id, $type ) {
+
 		if ( ! ( self::get_status_of( $id, $type ) & self::REGISTERED ) ) {
 			foreach ( self::$scripts as $s ) {
 				if ( $s['id'] === $id && $s['type'] === $type )
@@ -320,6 +325,7 @@ final class Registry {
 	 * @since 5.0.0 Is now static.
 	 */
 	private static function forward_known_scripts() {
+
 		// Register them first to accommodate for dependencies.
 		foreach ( self::$scripts as $s ) {
 			if ( self::get_status_of( $s['id'], $s['type'] ) & self::REGISTERED ) continue;
@@ -558,6 +564,7 @@ final class Registry {
 	 * }
 	 */
 	private static function register_template( $id, $templates ) {
+
 		// Wrap template if it's only one on the base.
 		if ( isset( $templates['file'] ) )
 			$templates = [ $templates ];
@@ -580,8 +587,10 @@ final class Registry {
 	 * @since 3.2.2 Now clears outputted templates, so to prevent duplications.
 	 * @since 4.1.2 Now clears templates right before outputting them, so to prevent a plausible infinite loop.
 	 * @since 5.0.0 Is now static.
+	 * @access private
 	 */
 	public static function _output_templates() {
+
 		foreach ( self::$templates as $id => $templates ) {
 			if ( \wp_script_is( $id, 'enqueued' ) ) { // This list retains scripts after they're outputted.
 				// Unset template before the loop, to prevent an infinite loop.

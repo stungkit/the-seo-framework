@@ -66,7 +66,6 @@ final class XSL {
 	 * @since 3.1.0
 	 * @since 4.2.0 1. $tableMinWidth no longer adds 'px'.
 	 *              2. Moved to class.
-	 * @access private
 	 */
 	public static function _print_xsl_global_variables() {
 		Template::output_view( 'sitemap/xsl/vars' );
@@ -79,7 +78,6 @@ final class XSL {
 	 * @since 3.1.0
 	 * @since 4.0.0 Now uses a consistent titling scheme.
 	 * @since 4.2.0 Moved to class
-	 * @access private
 	 */
 	public static function _print_xsl_title() {
 		Template::output_view( 'sitemap/xsl/title' );
@@ -92,7 +90,6 @@ final class XSL {
 	 * @since 3.1.0
 	 * @since 4.2.0 1. Centered sitemap.
 	 *              2. Moved to class.
-	 * @access private
 	 */
 	public static function _print_xsl_styles() {
 		Template::output_view( 'sitemap/xsl/styles' );
@@ -104,7 +101,6 @@ final class XSL {
 	 * @hook the_seo_framework_xsl_description 10
 	 * @since 3.1.0
 	 * @since 4.2.0 Moved to class.
-	 * @access private
 	 */
 	public static function _print_xsl_description() {
 		Template::output_view( 'sitemap/xsl/description' );
@@ -116,7 +112,6 @@ final class XSL {
 	 * @hook the_seo_framework_xsl_content 10
 	 * @since 3.1.0
 	 * @since 4.2.0 Moved to class.
-	 * @access private
 	 */
 	public static function _print_xsl_content() {
 		Template::output_view( 'sitemap/xsl/table' );
@@ -128,7 +123,6 @@ final class XSL {
 	 * @hook the_seo_framework_xsl_footer 10
 	 * @since 3.1.0
 	 * @since 4.2.0 Moved to class.
-	 * @access private
 	 */
 	public static function _print_xsl_footer() {
 		/**
@@ -146,7 +140,6 @@ final class XSL {
 	 * @hook site_icon_meta_tags PHP_INT_MAX
 	 * @since 3.1.4
 	 * @since 4.2.0 Moved to class.
-	 * @access private
 	 *
 	 * @param array $tags Site Icon meta elements.
 	 * @return array The converted meta tags.

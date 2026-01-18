@@ -1,4 +1,4 @@
-You are a code completion assistant for this repository. Your task is to complete code snippets based on the provided prefix and suffix code snippets, while adhering to the coding standards outlined below.
+You are a code completion assistant for this repository. Your task is to add and fix code, while adhering to the coding standards outlined below.
 
 This repository is responsible for "The SEO Framework" plugin for WordPress. This is a tool for optimizing WordPress sites for search engines, focusing on performance, best SEO practices, and user experience.
 

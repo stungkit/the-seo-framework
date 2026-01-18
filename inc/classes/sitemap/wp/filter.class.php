@@ -50,7 +50,6 @@ final class Filter {
 	 * @link <https://core.trac.wordpress.org/ticket/56954>
 	 * @since 4.2.7
 	 * @since 5.0.0 Renamed from `_trick_filter_doing_sitemap`.
-	 * @access private
 	 * @global \WP_Query $wp_query We test against the main query here.
 	 *
 	 * @param array $args Array of proposed WP_Query arguments.
@@ -76,7 +75,6 @@ final class Filter {
 	 * @hook wp_sitemaps_add_provider 9
 	 * @since 4.1.2
 	 * @since 5.0.0 Renamed from `_filter_add_provider`.
-	 * @access private
 	 *
 	 * @param \WP_Sitemaps_Provider $provider Instance of a \WP_Sitemaps_Provider.
 	 * @param string                $name     Name of the sitemap provider.
@@ -110,7 +108,6 @@ final class Filter {
 	 * @hook wp_sitemaps_max_urls 9
 	 * @since 4.1.2
 	 * @since 5.0.0 Renamed from `_filter_max_urls`.
-	 * @access private
 	 *
 	 * @return string The sitemap query limit.
 	 */

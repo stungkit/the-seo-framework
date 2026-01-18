@@ -85,7 +85,7 @@
 	user-select: none;
 }
 
-.tsf-seo-bar-item:focus {
+.tsf-seo-bar-item:focus-visible {
 	outline: none;
 	box-shadow: 0 0 0 1px currentColor inset;
 }

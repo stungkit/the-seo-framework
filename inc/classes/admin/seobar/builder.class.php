@@ -34,9 +34,11 @@ use The_SEO_Framework\Data;
  * @since 5.0.0 1. Moved from `\The_SEO_Framework\Interpreters`
  *              2. Renamed from `SEOBar`.
  *              3. The entire class is now static.
- * @access private
+ * @since 5.1.5 No longer final.
+ * @access protected
+ *         Use tsf()->admin()->seobar() instead.
  */
-final class Builder {
+class Builder {
 
 	/**
 	 * The recognized SEO Bar item states.

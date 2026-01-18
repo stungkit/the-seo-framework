@@ -8,6 +8,8 @@ namespace The_SEO_Framework\Admin\Script;
 
 \defined( 'THE_SEO_FRAMEWORK_PRESENT' ) or die;
 
+use function The_SEO_Framework\has_run;
+
 use The_SEO_Framework\{
 	Data,
 	Meta,
@@ -47,18 +49,44 @@ use The_SEO_Framework\Helper\{
  * - params shouldn't change, like the page ID.
  *
  * @since 5.0.0
+ * @since 5.1.5 No longer final.
  * @see \The_SEO_Framework\Admin\Script\Registry
- * @access private
+ * @access protected
+ *         Use tsf()->admin()->scripts()->loader() instead.
  */
-final class Loader {
+class Loader {
+
+	/**
+	 * Initializes and enqueues scripts anywhere.
+	 *
+	 * Great for manual initialization; for example, on the front-end.
+	 *
+	 * @since 5.1.5
+	 * @api Not used internally.
+	 */
+	public static function mount() {
+
+		self::init();
+
+		$enqueue_hook = \is_admin() ? 'admin_enqueue_scripts' : 'wp_enqueue_scripts';
+
+		if ( \did_action( $enqueue_hook ) ) {
+			Registry::enqueue();
+		} else {
+			\add_action( $enqueue_hook, [ Registry::class, 'enqueue' ] );
+		}
+	}
 
 	/**
 	 * Initializes scripts based on admin query.
 	 *
 	 * @since 5.0.0
-	 * @access private
+	 * @since 5.1.5 Prevents multiple runs.
 	 */
 	public static function init() {
+
+		if ( has_run( __METHOD__ ) )
+			return;
 
 		$scripts = [
 			self::get_common_scripts(),
@@ -169,6 +197,7 @@ final class Loader {
 	 * @since 4.0.0
 	 */
 	public static function prepare_metabox_scripts() {
+
 		\wp_enqueue_script( 'common' );
 		\wp_enqueue_script( 'wp-lists' );
 		\wp_enqueue_script( 'postbox' );
@@ -205,7 +234,7 @@ final class Loader {
 			[
 				'id'       => 'tsf',
 				'type'     => 'js',
-				'deps'     => [ 'wp-util', 'tsf-utils' ],
+				'deps'     => [ 'tsf-utils' ],
 				'autoload' => true,
 				'name'     => 'tsf',
 				'base'     => \THE_SEO_FRAMEWORK_DIR_URL . 'lib/js/',
@@ -756,6 +785,7 @@ final class Loader {
 	 * @return array The script params.
 	 */
 	public static function get_canonical_scripts() {
+
 		global $wp_rewrite;
 
 		$parsed_home_url = Meta\URI\Utils::get_parsed_front_page_url();
