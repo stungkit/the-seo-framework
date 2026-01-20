@@ -247,6 +247,13 @@ You can also output these breadcrumbs visually in your theme by [using a shortco
 
 ## For everyone
 
+* **Changed:**
+	* **Open Graph locales:** We couldn't find any documentation on the languages Facebook supports for Open Graph, so we resorted to scraping their network, testing all 46500 possible locale combinations, and adjusted support accordingly:
+		* **These WordPress locales are no longer supported by Facebook:** Cebuano, Esperanto, Spanish (Chile, Colombia, Mexico, Venezuela), Igbo, Limburgish, Lingala, Luganda, Māori, Romansh, Sanskrit, Silesian, Syriac, Tamazight, Wolof, Xhosa, Yoruba, Zulu.
+			* A fallback locale will be calculated for these languages based on their language code only. For example, `es_MX` (Spanish - Mexico) will fall back to `es_ES` (Spanish - Spain).
+			* This does not affect your site's language or any other functionality; only Open Graph locale output is affected to conform to Facebook's supported locales.
+		* **The locales are also no longer supported:** Akan, Aymara, Sorani Kurdish, Cherokee, English (India, Pirate, Upside Down), Leet Speak, Classical Greek, Latin, Ndebele, Chewa, Quechua, Northern Sámi, Klingon, Yiddish, Zazaki.
+		* **These locales are now supported, although not by WordPress:** Haitian Creole, Inupiaq, Inuktitut.
 * **Improved:**
 	* **Tooltips:**
 		* Tooltips now aim to be a little wider to ease reading.
@@ -268,7 +275,10 @@ You can also output these breadcrumbs visually in your theme by [using a shortco
 			* It contains public methods `mount()` and `init()`, among many script setup methods.
 			* Internally known as `The_SEO_Framework\Admin\Script\Loader`.
 		* **Fun fact:** We had to add the two pools above to display interactive demos of TSF on our Knowledge Base -- in this case, for our [SEO Bar xplainer](https://kb.theseoframework.com/kb/what-is-the-seo-bar/). More demos will come, which will force us to improve the APIs even further.
-
+	* **Changed:**
+		* Method `The_SEO_Framework\Meta\Open_Graph::get_supported_locales()` (`tsf()->open_graph()->get_supported_locales()`):
+			1. Removed deprecated locales: `ak_GH`, `ay_BO`, `cb_IQ`, `ck_US`, `cx_PH`, `en_IN`, `en_PI`, `en_UD`, `eo_EO`, `es_CL`, `es_CO`, `es_MX`, `es_VE`, `fb_LT`, `gx_GR`, `ig_NG`, `la_VA`, `lg_UG`, `li_NL`, `ln_CD`, `mi_NZ`, `nd_ZW`, `ny_MW`, `qu_PE`, `rm_CH`, `sa_IN`, `se_NO`, `sy_SY`, `sz_PL`, `tl_ST`, `tz_MA`, `wo_SN`, `xh_ZA`, `yi_DE`, `yo_NG`, `zu_ZA`, `zz_TR`.
+			2. Added locales: `ht_HT`, `ik_US`, `iu_CA`.
 
 ### 5.1.4
 
