@@ -277,8 +277,10 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 			* You must flush the entire cache for these plugins in order to make this effective. This update prevents new empty sitemap or stylesheet responses from being stored, but it cannot replace a broken response already written to a page cache, reverse proxy, CDN, or host-level cache before WordPress loads.
 			* After updating, use the cache plugin's "Purge All," "Clear all cache," or equivalent full-cache action. Do not purge only `sitemap.xml`, `sitemap_index.xml`, or `sitemap.xsl`, because cache plugins may store endpoint variants by host, scheme, compression, mobile view, language, or query state.
 			* Do not rely on the plugin update process to clear these entries. Cachify, SpeedyCache, and W3 Total Cache do not appear to purge all page cache entries on plugin updates; LiteSpeed Cache does so only when its "Purge All On Upgrade" setting is enabled; Surge expires all entries on automatic updates and plugin activation/deactivation, but not reliably on manual updates.
+	* **Plugin: Polylang:**
+		* Resolved an issue where posts excluded from local search could still appear in translated search results.
 * **Fixed:**
-	* Resolved an issue where search-result filtering could pass no post list onward when WordPress marked a request as search without a raw search parameter. Since the search parameter is always assumed, we couldn't reproduce this issue, but a dry run caught it.
+	* Resolved an issue where excluded posts could slip through search-result filtering caused by malformed search queries without a raw search parameter.
 	* Resolved an issue where `X-Robots-Tag: noindex` was omitted from the `robots.txt` response unless an output buffer (like a page cache) was active.
 * **Notes:**
 	* WordPress 6.7 is now required, from 6.0. This allowed us to drop some legacy workarounds.
