@@ -312,6 +312,8 @@ final class Debug {
 	/**
 	 * Echos debug output.
 	 *
+	 * @hook admin_footer 10
+	 * @hook wp_footer 10
 	 * @since 2.6.0
 	 * @since 5.0.0 is now static.
 	 * @access private
@@ -363,6 +365,7 @@ final class Debug {
 	/**
 	 * Sets debug query cache.
 	 *
+	 * @hook the_seo_framework_do_before_output 10
 	 * @since 3.1.0 Introduced in 2.8.0, but the name changed.
 	 * @access private
 	 */

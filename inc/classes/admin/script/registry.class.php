@@ -20,7 +20,7 @@ use The_SEO_Framework\Helper\{
 	Post_Type,
 	Query,
 	Taxonomy,
-	Template
+	Template,
 };
 
 /**
@@ -147,6 +147,9 @@ final class Registry {
 	/**
 	 * Enqueues all known registered scripts, styles, and templates.
 	 *
+	 * @hook admin_enqueue_scripts 10
+	 * @hook wp_enqueue_scripts 10
+	 * @hook admin_footer 998
 	 * @since 3.1.0
 	 */
 	public static function enqueue() {
@@ -191,6 +194,7 @@ final class Registry {
 	/**
 	 * Prints the TSF no-js transform script, using ES2015 (ECMA-262).
 	 *
+	 * @hook in_admin_header 10
 	 * @since 4.0.0
 	 * @since 4.0.5 Put the const assignment on front, so it's prone to fail earlier.
 	 * @since 5.0.0 Is now static.
@@ -203,6 +207,7 @@ final class Registry {
 	/**
 	 * Prepares scripts for output on post edit screens.
 	 *
+	 * @hook admin_enqueue_scripts 1
 	 * @since 3.1.0
 	 * @since 5.0.0 Is now static.
 	 * @access private
@@ -591,6 +596,7 @@ final class Registry {
 	 * The template will only be outputted when the related script is too.
 	 * The loop will only run when templates are registered.
 	 *
+	 * @hook admin_footer 999
 	 * @since 3.1.0
 	 * @since 3.2.2 Now clears outputted templates, so to prevent duplications.
 	 * @since 4.1.2 Now clears templates right before outputting them, so to prevent a plausible infinite loop.

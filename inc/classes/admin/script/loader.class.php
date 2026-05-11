@@ -80,6 +80,7 @@ class Loader {
 	/**
 	 * Initializes scripts based on admin query.
 	 *
+	 * @hook admin_enqueue_scripts 0
 	 * @since 5.0.0
 	 * @since 5.1.5 Prevents multiple runs.
 	 */

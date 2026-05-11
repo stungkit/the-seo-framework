@@ -105,7 +105,7 @@ if (
 
 	// Only add the feed link to the excerpt if we're only building excerpts.
 	if ( \get_option( 'rss_use_excerpt' ) )
-		\add_filter( 'the_excerpt_rss', [ Front\Feed::class, 'modify_the_content_feed' ], 10, 1 );
+		\add_filter( 'the_excerpt_rss', [ Front\Feed::class, 'modify_the_content_feed' ] );
 }
 
 /**
