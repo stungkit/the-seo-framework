@@ -40,10 +40,14 @@ class Headers {
 	 * @since 2.8.0
 	 * @since 2.9.0 Now flushes all levels rather than just the latest one.
 	 * @since 4.0.0 Is now public.
+	 * @since 5.1.5 Now discourages page caches from storing scrubbed buffers.
 	 *
 	 * @return bool True on clear. False otherwise.
 	 */
 	public static function clean_response_header() {
+
+		if ( ! \defined( 'DONOTCACHEPAGE' ) )
+			\define( 'DONOTCACHEPAGE', true );
 
 		$level = ob_get_level();
 
