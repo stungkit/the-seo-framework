@@ -304,6 +304,7 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 			1. Removed deprecated locales: `ak_GH`, `ay_BO`, `cb_IQ`, `ck_US`, `cx_PH`, `en_IN`, `en_PI`, `en_UD`, `eo_EO`, `es_CL`, `es_CO`, `es_MX`, `es_VE`, `fb_LT`, `gx_GR`, `ig_NG`, `la_VA`, `lg_UG`, `li_NL`, `ln_CD`, `mi_NZ`, `nd_ZW`, `ny_MW`, `qu_PE`, `rm_CH`, `sa_IN`, `se_NO`, `sy_SY`, `sz_PL`, `tl_ST`, `tz_MA`, `wo_SN`, `xh_ZA`, `yi_DE`, `yo_NG`, `zu_ZA`, `zz_TR`.
 			2. Added locales: `ht_HT`, `ik_US`, `iu_CA`.
 	* **Improved:**
+		* Method `The_SEO_Framework\Meta\Open_Graph::get_locale()` (`tsf()->open_graph()->get_locale()`) now derives the Open Graph locale from `The_SEO_Framework\Data\Blog::get_language()` (`tsf()->data()->blog()->get_language()`) instead of calling `get_locale()` directly. Because `get_language()` is memoized, repeated locale filter callbacks on multilingual sites (Polylang, WPML) are avoided.
 		* Method `The_SEO_Framework\Helper\Format\Arrays::array_diff_assoc_recursive()` (`tsf()->format()->arrays()->array_diff_assoc_recursive()`) now uses `array_reduce()` instead of a while-loop for 1.9x faster execution and better readability.
 		* Method `The_SEO_Framework\Helper\Headers::clean_response_header()` (`tsf()->headers()->clean_response_header()`) now defines `DONOTCACHEPAGE` before clearing output buffers, so page caches can skip storing scrubbed responses.
 		* Method `The_SEO_Framework\Sitemap\Registry::output_stylesheet()` (`tsf()->sitemap()->registry()->output_stylesheet()`) now sends a nofollow header to prevent crawlers from following non-existent template links in the XSL.
