@@ -157,5 +157,7 @@ After you are done working on your code:
 1. Recheck your changes against all instructions. If you find a code snippet that does not comply, fix it.
 2. Recheck your code to simplify it as much as possible without losing functionality.
 3. Make a checklist of all changes you made in accordance with the request. If you could not do something, mark it with X and explain the issue.
+4. If any change warrants a PHPdoc update or alters a function's behavior, signature, or output, add or update the relevant `@since` tag using the active version number only, stripping any `-dev-{number}` or similar suffix (e.g., `5.1.5-dev-15` becomes `5.1.5`).
+5. Record such changes in the active version's changelog in `readme.txt`, either or both: user-visible effects under `For everyone`, API or filter changes under `For developers`.
 
 After adding a new feature, review the code 20 lines above and below where you added it. Reevaluate your code with this context in mind: is it still the best solution, or should it be refactored?

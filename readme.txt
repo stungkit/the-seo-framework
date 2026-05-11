@@ -282,6 +282,7 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 * **Fixed:**
 	* Resolved an issue where excluded posts could slip through search-result filtering caused by malformed search queries without a raw search parameter.
 	* Resolved an issue where `X-Robots-Tag: noindex` was omitted from the `robots.txt` response unless an output buffer (like a page cache) was active.
+	* Resolved an issue where the `[tsf_breadcrumb]` shortcode's `<ol>` element could inherit inline-start padding from the active theme, causing misaligned breadcrumb display.
 * **Notes:**
 	* WordPress 6.7 is now required, from 6.0. This allowed us to drop some legacy workarounds.
 		* Since WordPress doesn't adhere to Semantic Versioning (SemVer), this is actually a minor bump -- so we didn't bother highlighting it.
@@ -310,6 +311,9 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 		* Method `The_SEO_Framework\Sitemap\Registry::output_stylesheet()` (`tsf()->sitemap()->registry()->output_stylesheet()`) now sends a nofollow header to prevent crawlers from following non-existent template links in the XSL.
 	* **Other:**
 		* Class `The_SEO_Framework\Pool` (`tsf()->pool()`) now stores cache keys by function name, instead of hardcoded strings, reducing duplication and the risk of mismatched keys. This was initiated after we found a typo in a string key.
+* **Filter notes:**
+	* **Changed:**
+		* Filter `the_seo_framework_breadcrumb_shortcode_css`: The default CSS for the `nav.$class ol` selector now includes `padding-inline-start:0`.
 
 ### 5.1.4
 
