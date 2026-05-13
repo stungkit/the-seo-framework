@@ -13,7 +13,7 @@ Follow these rules.
 - When copying content from code, such as docblocks, comments, or commit notes, into readme.txt or other user-facing docs, preserve the essence verbatim. Only minor prose tweaks for readability are allowed. Do not add details that are not present in the source.
 - In the readme, when mentioning a method or property in public classes, use the fully qualified name and then the API function in parentheses, for example `The_SEO_Framework\Admin\SEOBar\Builder::generate_bar()` (`tsf()->admin()->seobar()->generate_bar()`). This ensures users can find the method or property in the codebase and understand how to access it via the public API.
 
-## Work Types
+## Repository-Specific Work Types
 
 This repository work generally falls into three categories:
 

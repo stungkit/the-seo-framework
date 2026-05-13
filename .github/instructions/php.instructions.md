@@ -3,6 +3,10 @@ description: "Use when editing PHP, WordPress PHP, SQL-in-PHP, or mixed PHP and 
 applyTo: "**/*.php"
 ---
 
+## Repository-Specific Rules
+
+- `inc\classes\front` classes should never be used/imported for admin-facing classes or views. Likewise, `inc\classes\admin` classes should never be used/imported for front-facing classes or views. If either happens, we may need to introduce a helper function that serves both the front and admin sides.
+
 # PHP and WordPress Rules
 
 - Use PHP 7.4+.
