@@ -1,0 +1,7 @@
+---
+description: Private workspace guidance, support materials, related-repository cross-references, remediation, troubleshooting, reproduction, triage, and customer-facing diagnosis
+globs: .local/**
+alwaysApply: false
+---
+
+Follow the local workspace rules in @.github/instructions/local.instructions.md when handling `.local/` content, support inquiries, or private workspace context.

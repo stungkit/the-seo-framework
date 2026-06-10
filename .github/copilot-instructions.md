@@ -12,6 +12,7 @@ Follow these rules.
 - We use `var_dump()` in comments to indicate a blocking issue.
 - When copying content from code, such as docblocks, comments, or commit notes, into readme.txt or other user-facing docs, preserve the essence verbatim. Only minor prose tweaks for readability are allowed. Do not add details that are not present in the source.
 - In the readme, when mentioning a method or property in public classes, use the fully qualified name and then the API function in parentheses, for example `The_SEO_Framework\Admin\SEOBar\Builder::generate_bar()` (`tsf()->admin()->seobar()->generate_bar()`). This ensures users can find the method or property in the codebase and understand how to access it via the public API.
+- After processing, if any change warrants a PHPdoc update or alters a function's behavior, signature, or output, add or update the relevant `@since` tag using the active version number only, stripping any `-dev-{number}` or similar suffix (e.g., `5.1.5-dev-15` becomes `5.1.5`). Also record such changes in the active version's changelog in `readme.txt`, either or both: user-visible effects under `For everyone`, API or filter changes under `For developers`.
 
 ## Repository-Specific Work Types
 
@@ -127,7 +128,7 @@ Explicitly forbidden in any response:
 
 ## Avoid
 
-- Obvious comments or explaining standard API/WordPress functions.
+- Obvious comments or explaining standard API functions.
 - Unnecessary variables unless required for readability.
 - Regurgitating your instructions unless requested.
 - Cruft, dead code, and speculative future-proofing.
@@ -157,7 +158,5 @@ After you are done working on your code:
 1. Recheck your changes against all instructions. If you find a code snippet that does not comply, fix it.
 2. Recheck your code to simplify it as much as possible without losing functionality.
 3. Make a checklist of all changes you made in accordance with the request. If you could not do something, mark it with X and explain the issue.
-4. If any change warrants a PHPdoc update or alters a function's behavior, signature, or output, add or update the relevant `@since` tag using the active version number only, stripping any `-dev-{number}` or similar suffix (e.g., `5.1.5-dev-15` becomes `5.1.5`).
-5. Record such changes in the active version's changelog in `readme.txt`, either or both: user-visible effects under `For everyone`, API or filter changes under `For developers`.
 
 After adding a new feature, review the code 20 lines above and below where you added it. Reevaluate your code with this context in mind: is it still the best solution, or should it be refactored?

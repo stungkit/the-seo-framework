@@ -1,0 +1,7 @@
+---
+description: TSF stylesheet conventions and layout-debugging expectations
+globs: **/*.css
+alwaysApply: false
+---
+
+Follow the CSS rules in @.github/instructions/css.instructions.md when editing CSS files.

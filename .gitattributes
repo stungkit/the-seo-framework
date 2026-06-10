@@ -20,6 +20,7 @@
 *.woff2 binary
 
 # GitHub baggage for development.
+.cursor export-ignore
 .github export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore

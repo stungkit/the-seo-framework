@@ -25,6 +25,15 @@ readme.txt                      WordPress.org plugin readme (description, FAQ, i
 security.txt                    Security disclosure info pointing to GitHub Security Advisories
 wpml-config.xml                 WPML/Polylang config declaring translatable custom fields and settings
 
+.cursor/
+	rules/                        Cursor rule files mirroring the Copilot instruction files via @file references
+		core.mdc                    Always-applied rule attaching .github/copilot-instructions.md
+		css.mdc                     CSS-scoped rule attaching css.instructions.md
+		docs.mdc                    Readme-scoped rule attaching docs.instructions.md
+		javascript.mdc              JavaScript-scoped rule attaching javascript.instructions.md
+		local.mdc                   .local/-scoped rule attaching local.instructions.md
+		php.mdc                     PHP-scoped rule attaching php.instructions.md
+
 .github/
 	codemap.txt                   This file
 	CONTRIBUTING.md               Contribution guidelines
