@@ -104,6 +104,7 @@ Explicitly forbidden in any response:
 - Pad brackets and braces with spaces around arguments.
 - Align consecutive variable assignments at the equal signs.
 - Do not write inline comments that state the obvious.
+- Add a short inline comment next to or above magic numbers.
 - Do not add comments about your executions.
 - Write detailed docblocks for all functions, classes, and methods.
 - Add a newline after a function opening brace unless its body is a single line.
@@ -116,6 +117,7 @@ Explicitly forbidden in any response:
 
 ## File Health
 
+- Text files use LF line endings. After writing or editing files on Windows, normalize affected paths to LF before finishing the task. Use the `normalize-line-endings` skill command when needed.
 - Do not try to fix file encoding issues. Notify about them after your changes.
 - If you believe a file is corrupted, stop immediately and wait for a new instruction.
 - If you find a whitespace issue, it is probably because you forgot to add a newline at the end.

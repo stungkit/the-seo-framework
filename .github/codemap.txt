@@ -33,6 +33,11 @@ wpml-config.xml                 WPML/Polylang config declaring translatable cust
 		javascript.mdc              JavaScript-scoped rule attaching javascript.instructions.md
 		local.mdc                   .local/-scoped rule attaching local.instructions.md
 		php.mdc                     PHP-scoped rule attaching php.instructions.md
+	skills/                       Project-scoped Agent Skills (SKILL.md workflows)
+		normalize-line-endings/     LF normalization skill for Windows agent writes
+			SKILL.md                Skill instructions and PowerShell invocation examples
+			scripts/
+				normalize-lf.ps1    Converts CRLF to LF for tracked text extensions
 
 .github/
 	codemap.txt                   This file
