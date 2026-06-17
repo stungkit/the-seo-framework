@@ -288,6 +288,8 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 * **Notes:**
 	* WordPress 6.7 is now required, from 6.0. This allowed us to drop some legacy workarounds.
 		* Since WordPress doesn't adhere to Semantic Versioning (SemVer), this is actually a minor bump -- so we didn't bother highlighting it.
+* **Other:**
+	* Twitter Card help links now point to our [Knowledge Base](https://kb.theseoframework.com/?p=451#card-types) because X removed the original documentation. The explanation on how this works has also been more explicitely defined.
 
 ## For developers
 

@@ -464,8 +464,8 @@ switch ( $instance ) :
 				<strong><?php \esc_html_e( 'Twitter Card Type', 'autodescription' ); ?></strong>
 				<?php
 				HTML::make_info(
-					\__( 'The Twitter Card type is used to determine whether an image appears on the side or as a large cover. This affects X, but also other social platforms like Discord.', 'autodescription' ),
-					'https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards',
+					\__( 'The Twitter Card type controls the link preview layout. On X, the summary card shows a small thumbnail beside truncated title and description; the large-image card overlays the title on the image with no description. On Discord, the image appears small at the side or large below; both card types show the description.', 'autodescription' ),
+					'https://kb.theseoframework.com/?p=451#card-types',
 				);
 				?>
 			</label>

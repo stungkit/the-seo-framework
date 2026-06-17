@@ -118,7 +118,7 @@ switch ( $instance ) :
 			Input::make_checkbox( [
 				'id'          => 'twitter_tags',
 				'label'       => \__( 'Output Twitter Card meta tags?', 'autodescription' ),
-				'description' => \__( 'X (formerly Twitter), Discord, LinkedIn, and some other networks make use of these meta tags.', 'autodescription' ),
+				'description' => \__( 'X, Discord, LinkedIn, and some other networks make use of these meta tags.', 'autodescription' ),
 			] ),
 			true,
 		);
@@ -276,19 +276,30 @@ switch ( $instance ) :
 		$supported_twitter_cards = Meta\Twitter::get_supported_cards();
 
 		HTML::header_title( \__( 'Twitter Integration Settings', 'autodescription' ) );
-		HTML::description( \__( 'Sharing posts on X (formerly Twitter) works mostly via Twitter Cards and may fall back to use Open Graph. However, you can also link your Business and Personal X pages, among various other options.', 'autodescription' ) );
+		HTML::description( \__( 'Sharing posts on X works mostly via Twitter Cards and may fall back to use Open Graph. However, you can also link your Business and Personal X pages, among various other options.', 'autodescription' ) );
 
 		?>
 		<hr>
 
 		<fieldset id=tsf-twitter-cards>
-			<legend><?php HTML::header_title( \__( 'Twitter Card Type', 'autodescription' ) ); ?></legend>
+			<legend>
+				<h4>
+					<?php
+					\esc_html_e( 'Twitter Card Type', 'autodescription' );
+					echo ' ';
+					HTML::make_info(
+						\__( 'Learn more about this card.', 'autodescription' ),
+						'https://kb.theseoframework.com/?p=451#card-types',
+					);
+					?>
+				</h4>
+			</legend>
 			<?php
 			HTML::description(
-				\__( 'When you share a link on X (formerly Twitter), an image can appear on the side or as a large cover.', 'autodescription' )
+				\__( 'When you share a link on X, the summary card type shows a small thumbnail beside truncated title and description; the summary large image card type shows a large image with the title overlaid on it and no description.', 'autodescription' )
 			);
 			HTML::description(
-				\__( 'The Twitter Card type also affects images in Discord embeds; either displayed small at the side or large below.', 'autodescription' )
+				\__( 'On Discord, the image appears as a small thumbnail at the side or large below the text; both card types still show the description.', 'autodescription' )
 			);
 			?>
 
@@ -302,31 +313,6 @@ switch ( $instance ) :
 						<span>
 							<?php
 							echo HTML::code_wrap( $type ); // phpcs:ignore WordPress.Security.EscapeOutput
-
-							switch ( $type ) {
-								case 'summary':
-									$twep = 'summary';
-									break;
-								case 'summary_large_image':
-									$twep = 'summary-card-with-large-image';
-									break;
-								case 'player':
-									// No break: write $twep.
-									$twep = 'player-card';
-									break;
-								case 'app':
-									// No break: write $twep.
-									$twep = 'app-card';
-							}
-
-							if ( ! empty( $twep ) ) {
-								echo ' ';
-								HTML::make_info(
-									\__( 'Learn more about this card.', 'autodescription' ),
-									"https://developer.x.com/en/docs/twitter-for-websites/cards/overview/$twep",
-								);
-								unset( $twep );
-							}
 							?>
 						</span>
 					</label>
@@ -340,8 +326,8 @@ switch ( $instance ) :
 		<hr>
 		<?php
 		HTML::header_title( \__( 'Card and Content Attribution', 'autodescription' ) );
-		/* source: https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#attribution */
-		HTML::description( \__( 'X (formerly Twitter) claims users will be able to follow and view the profiles of attributed accounts directly from the card when these fields are filled in.', 'autodescription' ) );
+		/* See: https://kb.theseoframework.com/?p=451#attribution */
+		HTML::description( \__( 'X claims users will be able to follow and view the profiles of attributed accounts directly from the card when these fields are filled in.', 'autodescription' ) );
 		HTML::description( \__( 'However, for now, these fields seem to have no discernible effect.', 'autodescription' ) );
 		?>
 

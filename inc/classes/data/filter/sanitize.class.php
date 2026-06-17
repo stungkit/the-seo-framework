@@ -440,7 +440,7 @@ class Sanitize {
 		/**
 		 * Skip APNG, BMP, ICO, TIFF, and SVG.
 		 *
-		 * @link <https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup>
+		 * @link <https://web.archive.org/web/20260201012312/https://developer.x.com/en/docs/x-for-websites/cards/overview/markup>
 		 * @link <https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types>
 		 * jp(e)g, png, webp, and gif are supported. Assume all non-matches to fall in those categories,
 		 * since we don't perform a live MIME-test.
@@ -478,7 +478,7 @@ class Sanitize {
 
 		if ( $alt ) {
 			$alt = \wp_strip_all_tags( $alt );
-			// 420: https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary.html
+			// 420: https://web.archive.org/web/20260201012312/https://developer.x.com/en/docs/x-for-websites/cards/overview/markup
 			// Don't "ai"-trim if under, it's unlikely to always be a sentence. Trim to 417 to account for plausibly appended "...".
 			$alt = \strlen( $alt ) > 420 ? Strings::clamp_sentence( $alt, 0, 417 ) : $alt;
 		}
