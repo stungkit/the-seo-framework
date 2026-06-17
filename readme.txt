@@ -267,6 +267,7 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 	* **Styling:**
 		* The default admin style for WordPress 7.0 is now assumed to be `'modern'` instead of `'fresh'`.
 		* Updated radio buttons and checkboxes to accomodate for WordPress 7.0.
+		* Fixed a layout issue where hovering title prefix and addition overlays were misaligned in WordPress 7.0 admin input fields. Remains compatible with WordPress 6.8 and 6.9.
 	* **Robots.txt:**
 		* Sitemap Hinting now correctly outputs WordPress Core sitemap URLs when "Optimized Sitemap" output is disabled.
 	* **Head tags:**
@@ -283,6 +284,7 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 	* Resolved an issue where excluded posts could slip through search-result filtering caused by malformed search queries without a raw search parameter.
 	* Resolved an issue where `X-Robots-Tag: noindex` was omitted from the `robots.txt` response unless an output buffer (like a page cache) was active.
 	* Resolved an issue where the `[tsf_breadcrumb]` shortcode's `<ol>` element could inherit inline-start padding from the active theme, causing misaligned breadcrumb display.
+	* Resolved an issue where the generated archive title prefix briefly flickered when typing in Post Type Archive Settings meta title fields.
 * **Notes:**
 	* WordPress 6.7 is now required, from 6.0. This allowed us to drop some legacy workarounds.
 		* Since WordPress doesn't adhere to Semantic Versioning (SemVer), this is actually a minor bump -- so we didn't bother highlighting it.
@@ -298,7 +300,7 @@ TODO Fix sitemaps on SUBDIRECTORIES already.
 		* Pool `tsf()->admin()->scripts()->loader()` is now available.
 			* It contains public methods `mount()` and `init()`, among many script setup methods.
 			* Internally known as `The_SEO_Framework\Admin\Script\Loader`.
-		* **Fun fact:** We had to add the two pools above to display interactive demos of TSF on our Knowledge Base -- in this case, for our [SEO Bar xplainer](https://kb.theseoframework.com/kb/what-is-the-seo-bar/). More demos will come, which will force us to improve the APIs even further.
+		* **Fun fact:** We had to add the two pools above to display interactive demos of TSF on our Knowledge Base -- in this case, for our [SEO Bar explainer](https://kb.theseoframework.com/kb/what-is-the-seo-bar/). More demos will come, which will force us to improve the APIs even further.
 	* **Changed:**
 		* Method `The_SEO_Framework\Helper\Format\Minify::css()` (`tsf()->format()->minify()->css()`) no longer minifies `)` followed by a space, to prevent breaking CSS4 selectors like `:not(a) b`.
 		* Method `The_SEO_Framework\Meta\Open_Graph::get_supported_locales()` (`tsf()->open_graph()->get_supported_locales()`):
